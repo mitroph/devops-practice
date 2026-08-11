@@ -1,13 +1,20 @@
-Tuesday 32 2026 08:07:01 root         692  0.0  0.0   3144  1292 ?        S    07:55   0:00 /init
+=== System Report ===
+Tuesday 32 2026 08:36:58
+
+--- Top 5 RAM consuming processes ---
+root         692  0.0  0.0   3144  1292 ?        S    07:55   0:00 /init
 syslog       191  0.0  0.0 222508  5376 ?        Ssl  07:53   0:00 /usr/sbin/rsyslogd -n -iNONE
 systemd+     141  0.0  0.0  21456 12672 ?        Ss   07:53   0:00 /usr/lib/systemd/systemd-resolved
 systemd+     142  0.0  0.0  91024  7680 ?        Ssl  07:53   0:00 /usr/lib/systemd/systemd-timesyncd
-root         219  0.0  0.1 107024 21888 ?        Ssl  07:53   0:00 /usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal Filesystem      Size  Used Avail Use% Mounted on
+root         219  0.0  0.1 107024 21888 ?        Ssl  07:53   0:00 /usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal
+
+--- Disk Usage ---
+Filesystem      Size  Used Avail Use% Mounted on
 none            7.8G     0  7.8G   0% /usr/lib/modules/6.6.87.2-microsoft-standard-WSL2
 none            7.8G  4.0K  7.8G   1% /mnt/wsl
 drivers         476G  312G  165G  66% /usr/lib/wsl/drivers
 /dev/sdd       1007G  2.0G  954G   1% /
-none            7.8G   76K  7.8G   1% /mnt/wslg
+none            7.8G   80K  7.8G   1% /mnt/wslg
 none            7.8G     0  7.8G   0% /usr/lib/wsl/lib
 rootfs          7.8G  2.7M  7.8G   1% /init
 none            7.8G  540K  7.8G   1% /run
