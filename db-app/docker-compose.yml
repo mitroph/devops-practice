@@ -1,12 +1,23 @@
 services:
-  db_app:
+  db:
     image: postgres:15-alpine
     container_name: db_app
     ports:
     - 5432:5432
     volumes:
-    - movie:/var/lib/postgresql/data
+    - pgdata:/var/lib/postgresql/data
+    - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     env_file: ".env"
 
+  api:
+    container_name: api_app
+    build: 
+      context: ./python-api
+      # dockerfile: Dockerfile
+    depends_on:
+      - db
+    ports:
+    - 5000:5000
+
 volumes:
-  movie:
+  pgdata:
