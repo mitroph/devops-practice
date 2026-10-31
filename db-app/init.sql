@@ -1,8 +1,6 @@
 CREATE TABLE IF NOT EXISTS users (
-    id INT PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     name VARCHAR(100)
 );
 
-INSERT INTO users (id SERIAL PRIMARY KEY, name) VALUES ('John Bandera') ON CONFLICT (id) DO NOTHING;
-INSERT INTO users (id SERIAL PRIMARY KEY, name) VALUES ('Jane Shuhevich') ON CONFLICT (id) DO NOTHING;
-INSERT INTO users (id SERIAL PRIMARY KEY, name) VALUES ('Bob Konovalets') ON CONFLICT (id) DO NOTHING;
+INSERT INTO users (name) VALUES ('John Bandera'), ('Jane Shuhevich'), ('Bob Konovalets');

@@ -2,6 +2,7 @@
 set -euo pipefail
 
 docker compose up -d --build --wait
+trap 'docker compose down' EXIT
 
 
 health_endpoint=$(curl -s http://localhost:8080/health)
