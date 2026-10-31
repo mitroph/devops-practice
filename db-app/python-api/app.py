@@ -7,30 +7,35 @@ import psycopg2
 app = Flask(__name__)
 
 # Fetches user information from environment variables
-db_name = os.environ.get('POSTGRES_DB')
-db_user = os.environ.get('POSTGRES_USER')
-db_host = os.environ.get('DB_HOST')
-db_port = os.environ.get('DB_PORT')
-db_password = os.environ.get('POSTGRES_PASSWORD')
+db_name = os.environ['POSTGRES_DB']
+db_user = os.environ['POSTGRES_USER']
+db_host = os.environ['DB_HOST']
+db_port = os.environ['DB_PORT']
+db_password = os.environ['POSTGRES_PASSWORD']
 
-try:
-    conn = psycopg2.connect(
-        dbname=db_name,
-        user=db_user,
-        host="localhost",
-        port=5432,
-        password=db_password
-    )
-except:
-    print("I am unable to connect to the database")
+conn = psycopg2.connect(
+            dbname=db_name,
+            user=db_user,
+            host=db_host,
+            port=db_port,
+            password=db_password
+        )
 
 @app.route('/health')
 def health_check():
-    # Responds with status and user name
-    return jsonify({
-        "status": "healthy",
-        "user": getpass.getuser()
-    })
+    try:
+        # Checks if the database connection is alive
+        conn.cursor().execute("SELECT 1")
+        # Responds with status and database connection status
+        return jsonify({
+            "status": "healthy",
+            "db": "ok"
+        })
+    except:
+        # Handles database connection errors and responds with an error message
+        return jsonify({
+            "db": "down"
+        }), 503
 
 @app.route('/users')
 def get_users():
