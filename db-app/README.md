@@ -4,7 +4,7 @@
 
 run
 ```bash
-*cp .env.example .env*
+cp .env.example .env
 ```
 
 then edit __.env__ locally with your credentials
