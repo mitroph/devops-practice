@@ -1,22 +1,12 @@
 #!/bin/bash
 
-docker-compose up -d
-
-if [ -f .env ]; then
-    set -o allexport
-    source .env
-    set +o allexport
-fi
-
-
-sleep 10
-
+docker compose up -d --build --wait
 
 docker exec db_app psql -U $POSTGRES_USER -d $POSTGRES_DB -c "CREATE TABLE IF NOT EXISTS test_table (id INT);"
 
-docker-compose down
+docker compose down
 
-docker-compose up -d
+docker compose up -d --build --wait
 
 sleep 5
 

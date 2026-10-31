@@ -1,8 +1,9 @@
 #!/bin/bash
+set -euo pipefail
 
 ## Starting 3 services
 
-docker-compose up -d
+docker compose up -d --build --wait
 
 echo "[INFO] Starting of 3 services..."
 
@@ -21,5 +22,5 @@ else
     echo "[GATEWAY FAILED]"
     echo "[FRONTEND variable] ${frontend_response}"
     echo "[BACKEND variable] ${backend_response}"
-    docker-compose down
+    docker compose down -v
 fi

@@ -5,6 +5,14 @@ services:
       - ./frontend_data:/usr/share/nginx/html
     networks:
       - proxy
+    depends_on:
+      - backend
+      - gateway
+    healthcheck:
+      test: [ "CMD", "wget", "-f", "http://localhost:80/health" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   backend:
     image: nginx:alpine
@@ -12,6 +20,13 @@ services:
       - ./backend_data:/usr/share/nginx/html
     networks:
       - proxy
+    depends_on:
+      - gateway
+    healthcheck:
+      test: [ "CMD", "wget", "-f", "http://localhost:80/health" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   gateway:
     image: nginx:alpine
@@ -21,6 +36,11 @@ services:
       - 8080:80
     networks:
       - proxy
+    healthcheck:
+      test: [ "CMD", "wget", "-f", "http://localhost:80/health" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
 networks:
   proxy:
