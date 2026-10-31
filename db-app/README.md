@@ -2,4 +2,8 @@
 
 ## How to use?
 
-run '.test_stack.sh'
+run *cp .env.example .env*
+
+then edit __.env__ locally with your credentials
+
+run *./test_stack.sh*

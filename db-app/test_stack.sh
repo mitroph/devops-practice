@@ -5,13 +5,13 @@ docker compose up -d --build --wait
 trap 'docker compose down' EXIT
 
 
-health_endpoint=$(curl -s http://localhost:8080/health)
+health_endpoint=$(curl -fsS http://localhost:8080/health) || { echo "[FAIL] /health unreachable or not 200"; exit 1; }
 if [ -z "$health_endpoint" ]; then
     echo "Error: Health endpoint is empty. The API service may not be running."
     exit 1
 fi
 status=$(echo "${health_endpoint}" | jq -r '.status')
-users_endpoint=$(curl -s http://localhost:8080/users)
+users_endpoint=$(curl -fsS http://localhost:8080/users) || { echo "[FAIL] /users unreachable"; exit 1; }
 if [ -z "$users_endpoint" ]; then
     echo "Error: Users endpoint is empty. The API service may not be running."
     exit 1
@@ -30,3 +30,5 @@ if [ "$user_count" -eq 0 ]; then
     exit 1
 fi
 echo "Found $user_count users in the database."
+
+echo "[PASS] DEVOPS-1 stack test"
