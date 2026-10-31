@@ -25,8 +25,8 @@ if [ "$status" != "healthy" ]; then
 fi
 echo "API service is healthy."
 
-if [ "$user_count" -eq 0 ]; then
-    echo "Error: No users found in the database."
+if [ "$user_count" -lt 3 ]; then
+    echo "Error: Less than 3 users found in the database."
     exit 1
 fi
 echo "Found $user_count users in the database."

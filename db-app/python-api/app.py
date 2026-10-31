@@ -14,6 +14,7 @@ db_password = os.environ['DB_PASSWORD']
 
 @app.route('/health')
 def health_check():
+    conn = None
     try:
         conn = psycopg2.connect(
             dbname=db_name,
@@ -37,9 +38,13 @@ def health_check():
             "status": "unhealthy",
             "db": "down"
         }), 503
+    finally:
+        if conn is not None:
+            conn.close()
 
 @app.route('/users')
 def get_users():
+    conn = None
     try:
         conn = psycopg2.connect(
             dbname=db_name,
@@ -55,9 +60,12 @@ def get_users():
         return jsonify(user_list)
     except psycopg2.Error as e:
         # Handles database connection errors and responds with an error message
-        return jsonify({
-            "error": str(e)
-        }), 500
+        app.logger.exception("users query failed")
+        return jsonify({"error": "Failed to fetch users"}), 503
+    finally:
+        if conn is not None:
+            conn.close()
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
+
