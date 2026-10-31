@@ -1,8 +1,8 @@
 #!/bin/bash
 set -euo pipefail
 
-docker compose up -d --build --wait
 trap 'docker compose down' EXIT
+docker compose up -d --build --wait
 
 
 health_endpoint=$(curl -fsS http://localhost:8080/health) || { echo "[FAIL] /health unreachable or not 200"; exit 1; }
