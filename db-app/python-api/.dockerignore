@@ -1,0 +1,4 @@
+# .dockerignore file for Python API
+# Ignore unnecessary files and directories for Docker build context
+__pycache__/
+*.pyc
