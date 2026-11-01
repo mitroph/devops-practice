@@ -9,7 +9,7 @@ services:
       - backend
       - gateway
     healthcheck:
-      test: [ "CMD", "wget", "-f", "http://localhost:80/health" ]
+      test: [ "CMD", "wget", "-q", "--spider", "http://localhost:80/health" ]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -23,7 +23,7 @@ services:
     depends_on:
       - gateway
     healthcheck:
-      test: [ "CMD", "wget", "-f", "http://localhost:80/health" ]
+      test: [ "CMD", "wget", "-q", "--spider", "http://localhost:80/health" ]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -37,7 +37,7 @@ services:
     networks:
       - proxy
     healthcheck:
-      test: [ "CMD", "wget", "-f", "http://localhost:80/health" ]
+      test: [ "CMD", "wget", "-q", "--spider", "http://localhost:80/health" ]
       interval: 10s
       timeout: 5s
       retries: 5

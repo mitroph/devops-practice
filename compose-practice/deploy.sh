@@ -2,7 +2,7 @@
 
 echo "[INFO] Deploying infrastructure via Docker Compose..."
 
-docker-compose up -d
+docker compose up -d --build --wait 
 
 echo "[INFO] Waiting for web_server to become ready..."
 
