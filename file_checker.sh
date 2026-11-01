@@ -15,4 +15,9 @@ for file in "${files[@]}"; do
 	echo -e "[FAILED] $file is file number $missing_counter that is \033[0;31m MISSING\033[0m"
         ((missing_counter++))
     fi
+    if [ $missing_counter -gt 1 ]; then
+        echo "[ERROR] Some files are missing. Please check the logs above."
+        exit 1
+    fi
 done
+
