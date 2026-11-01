@@ -5,9 +5,6 @@ services:
       - ./frontend_data:/usr/share/nginx/html
     networks:
       - proxy
-    depends_on:
-      - backend
-      - gateway
     healthcheck:
       test: [ "CMD", "wget", "-q", "--spider", "http://localhost:80/health" ]
       interval: 10s
@@ -20,8 +17,6 @@ services:
       - ./backend_data:/usr/share/nginx/html
     networks:
       - proxy
-    depends_on:
-      - gateway
     healthcheck:
       test: [ "CMD", "wget", "-q", "--spider", "http://localhost:80/health" ]
       interval: 10s
@@ -36,6 +31,8 @@ services:
       - 8080:80
     networks:
       - proxy
+    depends_on:
+      condition: service_healthy - backend - frontend
     healthcheck:
       test: [ "CMD", "wget", "-q", "--spider", "http://localhost:80/health" ]
       interval: 10s

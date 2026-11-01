@@ -3,7 +3,7 @@ set -euo pipefail
 
 # Clear file and rewrote header with date and time
 echo "=== System Report ===" > report.txt
-date '+%A %V %G %X' >> report.txt
+date '+%F %X' >> report.txt
 echo "" >> report.txt
 
 ## Adding top 5 processes by RAM consumption

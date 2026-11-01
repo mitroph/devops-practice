@@ -1,13 +1,15 @@
 #!/bin/bash
+set -euo pipefail
 
 echo "[INFO] Deploying infrastructure via Docker Compose..."
 
-docker compose up -d --build --wait 
+trap 'docker compose down' EXIT
+docker compose up -d --build --wait
 
 echo "[INFO] Waiting for web_server to become ready..."
 
 while [ "$(curl -s -o /dev/null -w "%{http_code}" http://localhost:8080/app_config.json)" != "200" ]; do
-    echo "[WAIT] Server is not ready yet. Sleeping for 2 seconds..."
+    echo "[INFO] Waiting for web_server to become ready..."
     sleep 2
 done
 
