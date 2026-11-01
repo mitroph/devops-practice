@@ -1,14 +1,15 @@
 #!/bin/bash
+set -euo pipefail
 
+trap 'docker compose down' EXIT
 # Running our 2 services be docker-compose
-docker compose up -d --build -- wait
+docker compose up -d --build --wait
 
 echo "[INFO] Started up of services"
 
-sleep 3
 
 # Request to the backend service
-auth=$(curl -s -H "Accept: application/json" http://localhost:8082/api.json | jq -r '.module')
+auth=$(curl -s -f -H "Accept: application/json" http://localhost:8082/api.json | jq -r '.module')
 
 
 if [ "${auth}" == "auth" ]; then
@@ -21,5 +22,6 @@ else
     echo "[FAIL] Wrong API response"
 
     docker compose down
+    exit 1
 fi
 

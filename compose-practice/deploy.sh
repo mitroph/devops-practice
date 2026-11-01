@@ -3,16 +3,12 @@ set -euo pipefail
 
 echo "[INFO] Deploying infrastructure via Docker Compose..."
 
-trap 'docker compose down' EXIT
-docker compose up -d --build --wait
+trap 'docker compose down' ERROR EXIT
+docker compose up -d --wait
 
 echo "[INFO] Waiting for web_server to become ready..."
 
-while [ "$(curl -s -o /dev/null -w "%{http_code}" http://localhost:8080/app_config.json)" != "200" ]; do
-    echo "[INFO] Waiting for web_server to become ready..."
-    sleep 2
-done
-
+curl -fsS http://localhost:8080/health || { echo "[FAIL] web_server is not ready"; exit 1; }
 
 echo "[OK] Server is UP and responding to requests!"
 echo "[INFO] Fetching live configuration from the network..."

@@ -5,6 +5,11 @@ services:
       - 8081:80
     volumes:
       - ./frontend_data:/usr/share/nginx/html
+    healthcheck:
+      test: [ "CMD", "wget", "-q", "--spider", "http://localhost:80/health" ]
+      interval: 5s
+      timeout: 3s
+      retries: 5
 
   backend:
     image: nginx:alpine
@@ -12,3 +17,8 @@ services:
       - 8082:80
     volumes:
       - ./backend_data:/usr/share/nginx/html
+    healthcheck:
+      test: [ "CMD", "wget", "-q", "--spider", "http://localhost:80/health" ]
+      interval: 5s
+      timeout: 3s
+      retries: 5

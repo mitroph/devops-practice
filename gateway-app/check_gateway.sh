@@ -19,4 +19,5 @@ else
     echo "[FRONTEND variable] ${frontend_response}"
     echo "[BACKEND variable] ${backend_response}"
     docker compose down -v
+    exit 1
 fi

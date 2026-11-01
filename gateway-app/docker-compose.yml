@@ -32,7 +32,10 @@ services:
     networks:
       - proxy
     depends_on:
-      condition: service_healthy - backend - frontend
+      backend:
+        condition: service_healthy
+      frontend:
+        condition: service_healthy
     healthcheck:
       test: [ "CMD", "wget", "-q", "--spider", "http://localhost:80/health" ]
       interval: 10s
