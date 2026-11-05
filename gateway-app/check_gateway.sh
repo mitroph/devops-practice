@@ -7,9 +7,9 @@ echo "[INFO] Starting of 3 services..."
 docker compose up -d --build --wait
 
 
-frontend_response=$(curl -s http://localhost:8080/ | grep -i 'DOCTYPE')
+frontend_response=$(curl -s http://127.0.0.1:80:8080/ | grep -i 'DOCTYPE') || { echo "[GATEAWAY FAILED] / unreachable or not 200"; exit 1; }
 
-backend_response=$(curl -fsS http://localhost:8080/api/data.json | jq -r '.proxy') || { echo "[FAIL] /health unreachable or not 200"; exit 1; }
+backend_response=$(curl -fsS http://127.0.0.1:80:8080/api/data.json | jq -r '.proxy') || { echo "[BACKEND FAIL] /api/data.json unreachable or not 200"; exit 1; }
 
 
 if [ "${frontend_response}" == "<!DOCTYPE html>" ] && [ "${backend_response}" == "active" ]; then

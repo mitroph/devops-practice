@@ -1,5 +1,7 @@
 #!/bin/bash
+set -euo pipefail
 
+trap 'docker compose down' EXIT
 echo "[INFO] Generating index.html..."
 
 sed "s/{{STATUS}}/ACTIVE/g; s|{{BUILD_DATE}}|$(date +"%D")|g" index.template.html > index.html

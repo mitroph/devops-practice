@@ -4,7 +4,7 @@ set -euo pipefail
 trap 'docker compose down' EXIT
 docker compose up up -d --wait db
 
-docker exec db_app psql -U "$POSTGRES_USER" -d "$POSTGRES_DB" -c "CREATE TABLE IF NOT EXISTS test_table (id INT);"
+docker compose exec db sh -c "psql -U \"$POSTGRES_USER\" -d \"$POSTGRES_DB\" -c \"CREATE TABLE IF NOT EXISTS test_table (id INT);\""
 
 docker compose down
 
