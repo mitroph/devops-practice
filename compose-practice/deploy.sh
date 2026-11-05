@@ -3,7 +3,7 @@ set -euo pipefail
 
 echo "[INFO] Deploying infrastructure via Docker Compose..."
 
-trap 'docker compose down' EXIT
+trap 'docker compose down' ERR
 docker compose up -d --wait
 
 echo "[INFO] Waiting for web_server to become ready..."

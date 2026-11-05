@@ -1,7 +1,6 @@
 #!/bin/bash
 set -euo pipefail
 
-trap 'docker compose down' EXIT
 echo "[INFO] Generating index.html..."
 
 sed "s/{{STATUS}}/ACTIVE/g; s|{{BUILD_DATE}}|$(date +"%D")|g" index.template.html > index.html
@@ -12,4 +11,6 @@ docker build -t my-smart-nginx:latest .
 
 echo "[INFO] Running container on port 8080..."
 
-docker run -d -p 8080:80 my-smart-nginx:latest
+docker rm -f web 2>/dev/null || true
+
+docker run -d --name web -p 8080:80 my-smart-nginx:latest
