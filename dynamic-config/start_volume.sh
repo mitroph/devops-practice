@@ -13,4 +13,4 @@ fi
 
 echo "[INFO] Starting Nginx with hot-mounted volume..."
 # Flag -v mounts $(pwd) (current directory) inside the container
-docker run -d -p 8080:80 -v $(pwd):/usr/share/nginx/html nginx:alpine
+docker run -d -p 8080:80 -v "$(pwd)":/usr/share/nginx/html nginx:alpine

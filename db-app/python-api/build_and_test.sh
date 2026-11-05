@@ -1,11 +1,11 @@
 #!/bin/bash
-set -x  # Enable strict Bash debug mode
+set -euo pipefail
 
+trap 'docker rm -f test-api' EXIT
 docker build . -t api-service:1.0
 
 # Run container in background and allow time for startup
 docker run -d -p 8080:5000 --name test-api api-service:1.0
-sleep 3
 
 # Check container logs to ensure Flask started successfully
 docker logs test-api

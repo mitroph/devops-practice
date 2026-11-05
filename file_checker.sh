@@ -17,7 +17,7 @@ for file in "${files[@]}"; do
     fi
 done
 
-if [ $missing_counter -gt 1 ]; then
+if [ "$missing_counter" -gt 1 ]; then
         echo "[ERROR] Some files are missing. Please check the logs above."
         exit 1
 fi
