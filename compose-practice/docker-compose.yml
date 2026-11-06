@@ -2,6 +2,11 @@ services:
   web_server:
     image: nginx:alpine
     ports:
-      - "8080:80"
+      - "8085:80"
     volumes:
       - ./data:/usr/share/nginx/html
+    healthcheck:
+      test: [ "CMD", "wget", "-q", "--spider", "http://127.0.0.1:80/app_config.json" ]
+      interval: 5s
+      timeout: 3s
+      retries: 5
