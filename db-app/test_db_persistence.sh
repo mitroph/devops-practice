@@ -2,12 +2,14 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 
+docker compose down -v
+
 trap 'docker compose down' EXIT
 docker compose up -d --wait db
 
 docker compose exec db sh -c 'psql -U "$POSTGRES_USER" -d "$POSTGRES_DB" -c "CREATE TABLE IF NOT EXISTS test_table (id INT);"'
 
-docker compose down
+docker compose down -v
 
 docker compose up -d --wait db
 
@@ -21,5 +23,5 @@ else
     exit 1
 fi
 
-docker compose down
+docker compose down -v
 
