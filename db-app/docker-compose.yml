@@ -21,7 +21,7 @@ services:
         condition: service_healthy
         restart: true
     ports:
-      - 8080:5000
+      - 8085:5000
     environment:
       - DB_HOST=db
       - DB_PORT=5432

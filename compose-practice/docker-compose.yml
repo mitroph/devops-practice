@@ -2,7 +2,7 @@ services:
   web_server:
     image: nginx:alpine
     ports:
-      - "8080:80"
+      - "8085:80"
     volumes:
       - ./data:/usr/share/nginx/html
     healthcheck:

@@ -1,18 +1,17 @@
 #!/bin/bash
 set -euo pipefail
-cd "$(dirname "$0")"
 
 trap 'docker compose down' EXIT
 docker compose up -d --build --wait
 
 
-health_endpoint=$(curl -fsS http://localhost:8080/health) || { echo "[FAIL] /health unreachable or not 200"; exit 1; }
+health_endpoint=$(curl -fsS http://localhost:8085/health) || { echo "[FAIL] /health unreachable or not 200"; exit 1; }
 if [ -z "$health_endpoint" ]; then
     echo "Error: Health endpoint is empty. The API service may not be running."
     exit 1
 fi
 status=$(echo "${health_endpoint}" | jq -r '.status')
-users_endpoint=$(curl -fsS http://localhost:8080/users) || { echo "[FAIL] /users unreachable"; exit 1; }
+users_endpoint=$(curl -fsS http://localhost:8085/users) || { echo "[FAIL] /users unreachable"; exit 1; }
 if [ -z "$users_endpoint" ]; then
     echo "Error: Users endpoint is empty. The API service may not be running."
     exit 1

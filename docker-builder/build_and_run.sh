@@ -10,8 +10,8 @@ echo "[INFO] Building Docker image..."
 
 docker build -t my-smart-nginx:latest .
 
-echo "[INFO] Running container on port 8080..."
+echo "[INFO] Running container on port 8084..."
 
 docker rm -f web 2>/dev/null || true
 
-docker run -d --name web -p 8080:80 my-smart-nginx:latest
+docker run -d --name web -p 8084:80 my-smart-nginx:latest
