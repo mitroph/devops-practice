@@ -12,7 +12,7 @@ docker compose down
 docker compose up -d --wait db
 
 
-check=$(docker exec db_app -c 'psql -U "$POSTGRES_USER" -d "$POSTGRES_DB" -c "\dt"')
+check=$(docker exec db_app sh -c 'psql -U "$POSTGRES_USER" -d "$POSTGRES_DB" -c "\dt"')
 
 if echo "${check}" | grep -q "test_table"; then
     echo -e "\033[32m[PERSISTENCE SECURED]\033[0m"
