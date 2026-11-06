@@ -1,0 +1,5 @@
+## Generate files to ignore in Git
+docker-builder/index.html
+
+report.txt
+

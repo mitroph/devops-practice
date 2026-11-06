@@ -77,3 +77,81 @@ none            1.9G   76K  1.9G   1% /mnt/wslg/versions.txt
 none            1.9G   76K  1.9G   1% /mnt/wslg/doc
 C:\             476G  298G  179G  63% /mnt/c
 tmpfs           387M  8.0K  387M   1% /run/user/1000
+=== System Report ===
+2026-11-05 23:49:00
+
+--- Top 5 RAM consuming processes ---
+mitroph     2668  0.0  3.0 1462320 122576 pts/2  Sl+  18:17   0:03 /home/mitroph/.vscode-server/bin/261c84cb1eddf11235f9e2c921425e9663fbe556/node /home/mitroph/.vscode-server/bin/261c84cb1eddf11235f9e2c921425e9663fbe556/extensions/html-language-features/server/dist/node/htmlServerMain --node-ipc --clientProcessId=977
+mitroph      961  0.0  3.6 18556764 142712 pts/2 Sl+  18:10   0:10 /home/mitroph/.vscode-server/bin/261c84cb1eddf11235f9e2c921425e9663fbe556/node /home/mitroph/.vscode-server/bin/261c84cb1eddf11235f9e2c921425e9663fbe556/out/bootstrap-fork --type=agentHost --logsPath /home/mitroph/.vscode-server/data/logs/20261105T162421 --user-data-dir /home/mitroph/.vscode-server/data --telemetry-level all
+mitroph      904  0.3  4.3 1809144 173632 pts/2  Sl+  18:10   1:20 /home/mitroph/.vscode-server/bin/261c84cb1eddf11235f9e2c921425e9663fbe556/node /home/mitroph/.vscode-server/bin/261c84cb1eddf11235f9e2c921425e9663fbe556/out/server-main.js --host=127.0.0.1 --port=0 --connection-token=3821199216-3920300641-2732963824-2789414769 --use-host-proxy --without-browser-env-var --disable-websocket-compression --accept-server-license-terms --telemetry-level=all
+mitroph     1569  0.1 14.7 11451288 582768 pts/2 Sl+  18:10   0:32 /home/mitroph/.vscode-server/bin/261c84cb1eddf11235f9e2c921425e9663fbe556/node /home/mitroph/.vscode-server/extensions/ms-python.vscode-pylance-2026.4.1/dist/server.bundle.js --cancellationReceive=file:c968e21053aed27b9e4361df1dbc1104c0d06a0ea7 --node-ipc --clientProcessId=977
+mitroph      977  7.3 36.5 22247328 1446844 pts/2 Rl+ 18:10  24:50 /home/mitroph/.vscode-server/bin/261c84cb1eddf11235f9e2c921425e9663fbe556/node --dns-result-order=ipv4first /home/mitroph/.vscode-server/bin/261c84cb1eddf11235f9e2c921425e9663fbe556/out/bootstrap-fork --type=extensionHost --transformURIs --useHostProxy=true
+
+--- Disk Usage ---
+Filesystem      Size  Used Avail Use% Mounted on
+none            1.9G     0  1.9G   0% /usr/lib/modules/6.6.87.2-microsoft-standard-WSL2
+none            1.9G  4.0K  1.9G   1% /mnt/wsl
+drivers         476G  298G  179G  63% /usr/lib/wsl/drivers
+/dev/sdd       1007G  6.2G  950G   1% /
+none            1.9G  124K  1.9G   1% /mnt/wslg
+none            1.9G     0  1.9G   0% /usr/lib/wsl/lib
+rootfs          1.9G  2.7M  1.9G   1% /init
+none            1.9G  624K  1.9G   1% /run
+none            1.9G     0  1.9G   0% /run/lock
+none            1.9G     0  1.9G   0% /run/shm
+none            1.9G   76K  1.9G   1% /mnt/wslg/versions.txt
+none            1.9G   76K  1.9G   1% /mnt/wslg/doc
+C:\             476G  298G  179G  63% /mnt/c
+tmpfs           387M  8.0K  387M   1% /run/user/1000
+=== System Report ===
+2026-11-06 09:48:18
+
+--- Top 5 RAM consuming processes ---
+mitroph     2668  0.0  3.0 1462320 122576 pts/2  Sl+  03:48   0:03 /home/mitroph/.vscode-server/bin/261c84cb1eddf11235f9e2c921425e9663fbe556/node /home/mitroph/.vscode-server/bin/261c84cb1eddf11235f9e2c921425e9663fbe556/extensions/html-language-features/server/dist/node/htmlServerMain --node-ipc --clientProcessId=977
+mitroph      961  0.0  3.6 18557532 143352 pts/2 Sl+  03:41   0:17 /home/mitroph/.vscode-server/bin/261c84cb1eddf11235f9e2c921425e9663fbe556/node /home/mitroph/.vscode-server/bin/261c84cb1eddf11235f9e2c921425e9663fbe556/out/bootstrap-fork --type=agentHost --logsPath /home/mitroph/.vscode-server/data/logs/20261105T162421 --user-data-dir /home/mitroph/.vscode-server/data --telemetry-level all
+mitroph      904  0.3  4.3 1809144 173632 pts/2  Sl+  03:41   1:26 /home/mitroph/.vscode-server/bin/261c84cb1eddf11235f9e2c921425e9663fbe556/node /home/mitroph/.vscode-server/bin/261c84cb1eddf11235f9e2c921425e9663fbe556/out/server-main.js --host=127.0.0.1 --port=0 --connection-token=3821199216-3920300641-2732963824-2789414769 --use-host-proxy --without-browser-env-var --disable-websocket-compression --accept-server-license-terms --telemetry-level=all
+mitroph     1569  0.1 14.7 11451288 582768 pts/2 Sl+  03:42   0:32 /home/mitroph/.vscode-server/bin/261c84cb1eddf11235f9e2c921425e9663fbe556/node /home/mitroph/.vscode-server/extensions/ms-python.vscode-pylance-2026.4.1/dist/server.bundle.js --cancellationReceive=file:c968e21053aed27b9e4361df1dbc1104c0d06a0ea7 --node-ipc --clientProcessId=977
+mitroph      977  7.5 31.2 20906568 1236556 pts/2 Sl+ 03:41  27:37 /home/mitroph/.vscode-server/bin/261c84cb1eddf11235f9e2c921425e9663fbe556/node --dns-result-order=ipv4first /home/mitroph/.vscode-server/bin/261c84cb1eddf11235f9e2c921425e9663fbe556/out/bootstrap-fork --type=extensionHost --transformURIs --useHostProxy=true
+
+--- Disk Usage ---
+Filesystem      Size  Used Avail Use% Mounted on
+none            1.9G     0  1.9G   0% /usr/lib/modules/6.6.87.2-microsoft-standard-WSL2
+none            1.9G  4.0K  1.9G   1% /mnt/wsl
+drivers         476G  299G  178G  63% /usr/lib/wsl/drivers
+/dev/sdd       1007G  6.3G  950G   1% /
+none            1.9G  136K  1.9G   1% /mnt/wslg
+none            1.9G     0  1.9G   0% /usr/lib/wsl/lib
+rootfs          1.9G  2.7M  1.9G   1% /init
+none            1.9G  624K  1.9G   1% /run
+none            1.9G     0  1.9G   0% /run/lock
+none            1.9G     0  1.9G   0% /run/shm
+none            1.9G   76K  1.9G   1% /mnt/wslg/versions.txt
+none            1.9G   76K  1.9G   1% /mnt/wslg/doc
+C:\             476G  299G  178G  63% /mnt/c
+tmpfs           387M  8.0K  387M   1% /run/user/1000
+=== System Report ===
+2026-11-06 09:51:10
+
+--- Top 5 RAM consuming processes ---
+mitroph     2668  0.0  3.0 1462320 122576 pts/2  Sl+  03:48   0:03 /home/mitroph/.vscode-server/bin/261c84cb1eddf11235f9e2c921425e9663fbe556/node /home/mitroph/.vscode-server/bin/261c84cb1eddf11235f9e2c921425e9663fbe556/extensions/html-language-features/server/dist/node/htmlServerMain --node-ipc --clientProcessId=977
+mitroph      961  0.0  3.6 18557532 143352 pts/2 Sl+  03:41   0:17 /home/mitroph/.vscode-server/bin/261c84cb1eddf11235f9e2c921425e9663fbe556/node /home/mitroph/.vscode-server/bin/261c84cb1eddf11235f9e2c921425e9663fbe556/out/bootstrap-fork --type=agentHost --logsPath /home/mitroph/.vscode-server/data/logs/20261105T162421 --user-data-dir /home/mitroph/.vscode-server/data --telemetry-level all
+mitroph      904  0.3  4.3 1809144 173632 pts/2  Sl+  03:41   1:26 /home/mitroph/.vscode-server/bin/261c84cb1eddf11235f9e2c921425e9663fbe556/node /home/mitroph/.vscode-server/bin/261c84cb1eddf11235f9e2c921425e9663fbe556/out/server-main.js --host=127.0.0.1 --port=0 --connection-token=3821199216-3920300641-2732963824-2789414769 --use-host-proxy --without-browser-env-var --disable-websocket-compression --accept-server-license-terms --telemetry-level=all
+mitroph     1569  0.1 14.7 11451288 582768 pts/2 Sl+  03:42   0:32 /home/mitroph/.vscode-server/bin/261c84cb1eddf11235f9e2c921425e9663fbe556/node /home/mitroph/.vscode-server/extensions/ms-python.vscode-pylance-2026.4.1/dist/server.bundle.js --cancellationReceive=file:c968e21053aed27b9e4361df1dbc1104c0d06a0ea7 --node-ipc --clientProcessId=977
+mitroph      977  7.4 31.7 20926068 1255800 pts/2 Sl+ 03:41  27:42 /home/mitroph/.vscode-server/bin/261c84cb1eddf11235f9e2c921425e9663fbe556/node --dns-result-order=ipv4first /home/mitroph/.vscode-server/bin/261c84cb1eddf11235f9e2c921425e9663fbe556/out/bootstrap-fork --type=extensionHost --transformURIs --useHostProxy=true
+
+--- Disk Usage ---
+Filesystem      Size  Used Avail Use% Mounted on
+none            1.9G     0  1.9G   0% /usr/lib/modules/6.6.87.2-microsoft-standard-WSL2
+none            1.9G  4.0K  1.9G   1% /mnt/wsl
+drivers         476G  299G  178G  63% /usr/lib/wsl/drivers
+/dev/sdd       1007G  6.3G  950G   1% /
+none            1.9G  136K  1.9G   1% /mnt/wslg
+none            1.9G     0  1.9G   0% /usr/lib/wsl/lib
+rootfs          1.9G  2.7M  1.9G   1% /init
+none            1.9G  624K  1.9G   1% /run
+none            1.9G     0  1.9G   0% /run/lock
+none            1.9G     0  1.9G   0% /run/shm
+none            1.9G   76K  1.9G   1% /mnt/wslg/versions.txt
+none            1.9G   76K  1.9G   1% /mnt/wslg/doc
+C:\             476G  299G  178G  63% /mnt/c
+tmpfs           387M  8.0K  387M   1% /run/user/1000

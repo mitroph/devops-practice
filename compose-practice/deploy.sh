@@ -1,5 +1,6 @@
 #!/bin/bash
 set -euo pipefail
+cd "$(dirname "$0")"
 
 echo "[INFO] Deploying infrastructure via Docker Compose..."
 

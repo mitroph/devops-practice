@@ -1,5 +1,6 @@
 #!/bin/bash
 set -euo pipefail
+cd "$(dirname "$0")"
 
 trap 'docker compose down' EXIT
 # Running our 2 services be docker-compose

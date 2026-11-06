@@ -1,5 +1,6 @@
 #!/bin/bash
 set -euo pipefail
+cd "$(dirname "$0")"
 
 # Clear file and rewrote header with date and time
 {
@@ -11,5 +12,5 @@ set -euo pipefail
     echo ""
     echo "--- Disk Usage ---"
     df -h
-} >> report.txt
+} > report.txt
 
