@@ -1,5 +1,5 @@
 #!/bin/bash
-cd "$(dirname "$0")"
+cd "$(dirname "$0")" || exit
 
 # This script runs all scripts in this repository and checks each exit code. After all scripts have been run, it will print a summary of the results.
 
@@ -32,11 +32,11 @@ done
 echo "----------------------------------------"
 echo "Summary of results:"
 for script in "${!scrits_exit_codes[@]}"; do
-    exit_code=$?
+    exit_code=${scrits_exit_codes[$script]}
     if [ "$exit_code" -ne 0 ] || [[ "$script" = "./file_checker.sh" && "$exit_code" -ne 1 ]]; then
-        echo -e "\e[0;91m[ERROR] \e[0;97m$script failed with exit code ${scrits_exit_codes[$script]}"
+        echo -e "\e[0;91m[ERROR] \e[0;97m$script failed with exit code $exit_code"
     else
-        echo -e "\e[0;92m[SUCCESS] \e[0;97m$script completed successfully with exit code ${scrits_exit_codes[$script]}"
+        echo -e "\e[0;92m[SUCCESS] \e[0;97m$script completed successfully with exit code $exit_code"
     fi
 done
 echo "----------------------------------------"
