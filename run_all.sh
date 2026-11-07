@@ -1,4 +1,6 @@
 #!/bin/bash
+set -uo pipefail
+
 cd "$(dirname "$0")" || exit
 
 # This script runs all scripts in this repository and checks each exit code. After all scripts have been run, it will print a summary of the results.
